@@ -6,19 +6,38 @@
             <div class="avatar"><img src="<?= base_url('asset') ?>/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
                 <h1 class="h4">Febri Maulana Yunus</h1>
-                <p>Web Designer</p>
+                <p>Web Programming</p>
             </div>
         </div>
-        <!-- Sidebar Navidation Menus--><span class="heading">Main</span>
-        <ul class="list-unstyled">
-            <li class="active"><a href="index.html"> <i class="icon-home"></i>Home </a></li>
-            <li><a href="tables.html"> <i class="icon-grid"></i>Tables </a></li>
-            <li><a href="#exampledropdownDropdown" aria-expanded="false" data-toggle="collapse"> <i class="icon-interface-windows"></i>Example dropdown </a>
-                <ul id="exampledropdownDropdown" class="collapse list-unstyled ">
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                    <li><a href="#">Page</a></li>
-                </ul>
-            </li>
+        <ul class="list-unstyled p-0 mb-1">
+            <li><a href="<?= base_url(); ?>"> <i class="icon-home"></i>Home </a></li>
         </ul>
+        <?php $aktor = 1; ?>
+        <?php $menutitile = $this->menu->GetTitleMenu($aktor); ?>
+        <?php foreach ($menutitile as $tl) { ?>
+            <span class="heading"><?= $tl['nama_title_menu'] ?></span>
+            <?php
+                $titleid = $tl['id_title_menu'];
+                $submenu = $this->menu->GetSubMenu($titleid);
+                ?>
+            <?php foreach ($submenu as $sm) : ?>
+                <ul class="list-unstyled p-0">
+                    <?php if ($sm['nama_sub_menu'] == $title) { ?>
+                        <li class="active"><a href="<?= base_url() . $sm['url_sub_menu'] ?>"> <i class="<?= $sm['icon_sub_menu'] ?>"></i><?= $sm['nama_sub_menu'] ?></a></li>
+                    <?php } else { ?>
+                        <li><a href="<?= base_url() . $sm['url_sub_menu'] ?>"> <i class="<?= $sm['icon_sub_menu'] ?>"></i><?= $sm['nama_sub_menu'] ?></a></li>
+                    <?php } ?>
+                </ul>
+            <?php endforeach; ?>
+        <?php } ?>
     </nav>
+
+    <div class="content-inner">
+        <!-- Page Header-->
+        <header class="page-header">
+            <div class="container-fluid">
+                <h2 class="no-margin-bottom"><?= $title; ?></h2>
+            </div>
+        </header>
+        <!-- Dashboard Counts Section-->
+        <section class="dashboard-counts no-padding-bottom">

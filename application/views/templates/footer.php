@@ -1,3 +1,4 @@
+</section>
 <footer class="main-footer">
     <div class="container-fluid">
         <div class="row">
@@ -13,6 +14,7 @@
 </footer>
 </div>
 </div>
+</div>
 <!-- JavaScript files-->
 <script src="<?= base_url('asset') ?>/vendor/jquery/jquery.min.js"></script>
 <script src="<?= base_url('asset') ?>/vendor/popper.js/umd/popper.min.js"> </script>
@@ -23,6 +25,20 @@
 <script src="<?= base_url('asset') ?>/js/charts-home.js"></script>
 <!-- Main File-->
 <script src="<?= base_url('asset') ?>/js/front.js"></script>
+<!-- datatable -->
+<script type="text/javascript" src="<?= base_url('asset') ?>/vendor/datatable/pdfmake.min.js"></script>
+<script type="text/javascript" src="<?= base_url('asset') ?>/vendor/datatable/vfs_fonts.js"></script>
+<script type="text/javascript" src="<?= base_url('asset') ?>/vendor/datatable/datatables.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        });
+    });
+</script>
 </body>
 
 </html>

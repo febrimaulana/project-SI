@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="<?= base_url('asset') ?>/css/custom.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="<?= base_url('asset') ?>/img/favicon.ico">
+    <!-- datatable -->
+    <link rel="stylesheet" type="text/css" href="<?= base_url('asset') ?>/vendor/datatable/datatables.min.css" />
 
 </head>
 
