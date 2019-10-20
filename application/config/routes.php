@@ -56,3 +56,6 @@ $route['translate_uri_dashes'] = FALSE;
 
 // Route Menu
 $route['menu/title'] = 'ControllerTitleMenu';
+$route['menu/title/tambah'] = 'ControllerTitleMenu/tambah';
+$route['menu/title/hapus/(:any)'] = 'ControllerTitleMenu/hapus';
+$route['menu/title/ubah'] = 'ControllerTitleMenu/ubah';
