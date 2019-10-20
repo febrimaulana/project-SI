@@ -17,13 +17,18 @@ Document GIT
 
 Alasan kenapa harus menggunakan git itu jawaban nya ada di link ini -> https://medium.com/codelabs-unikom/beberapa-alasan-kenapa-harus-menggunakan-git-21a2b500f52e
 
+###################
 INSTALL GIT
+###################
+
 - Pertama Lu install dulu git download di link ini -> https://git-scm.com/downloads
 - terus lu install kaya bisa aja next next aja hehe
 - setelah selesai lu masuk ke htdocs(di semua folder bisa yaa ga cuman di htdocs aja) lalu klick kanan di situ nanti ada git bash here lu kick aja
 - nanti bakal muncul terminal kaya cmd
 
+###################
 COMMENT LINE GIT
+###################
 
 - git init -> git init ini buat inisiasi folder lu akan jadi repository kalo belum tau repository itu apa bisa di tanya mbah google ya, setelah lu tulis perintah git init folder lu akan di pantau oleh git jadi setiap 1 kata pun yan berubah git bakalan tau.
 - git status -> perintah ini untuk cek file yang masih belum masuk ke staging area atau file yang sudah di rubah apa aja atau istilahnya untuk mengetahui status dari repository lokal kita.
