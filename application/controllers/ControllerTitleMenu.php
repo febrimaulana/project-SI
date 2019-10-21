@@ -14,12 +14,9 @@ class ControllerTitleMenu extends CI_Controller
 	public function index()
 	{
 		$data['title'] = "Menu Title";
+		$lokasi = 'menu/title';
 		$data['menu'] = $this->menu->GetAllTitleMenu();
-
-		$this->load->view('templates/header', $data);
-		$this->load->view('templates/sidebar', $data);
-		$this->load->view('menu/title', $data);
-		$this->load->view('templates/footer', $data);
+		templates($lokasi, $data);
 	}
 
 	public function tambah()

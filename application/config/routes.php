@@ -59,3 +59,6 @@ $route['menu/title'] = 'ControllerTitleMenu';
 $route['menu/title/tambah'] = 'ControllerTitleMenu/tambah';
 $route['menu/title/hapus/(:any)'] = 'ControllerTitleMenu/hapus';
 $route['menu/title/ubah'] = 'ControllerTitleMenu/ubah';
+$route['menu/submenu'] = 'ControllerSubMenu';
+$route['menu/submenu/hapus/(:any)'] = 'ControllerSubMenu/hapus';
+$route['menu/submenu/ubah/(:any)'] = 'ControllerSubMenu/ubah';

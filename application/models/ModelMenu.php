@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class ModelMenu extends CI_Model
 {
-
+	// sidebar model
 	public function GetTitleMenu($aktor)
 	{
 		$this->db->select('id_title_menu, nama_title_menu');
@@ -22,7 +22,9 @@ class ModelMenu extends CI_Model
 		$this->db->where('tbl_sub_menu.status_sub_menu', '1');
 		return $this->db->get('')->result_array();
 	}
+	// end sidebar model
 
+	// tbl_title_menu
 	public function GetAllTitleMenu()
 	{
 		return $this->db->get('tbl_title_menu')->result_array();
@@ -43,6 +45,36 @@ class ModelMenu extends CI_Model
 	{
 		$this->db->where('id_title_menu', $id);
 		$this->db->update('tbl_title_menu', $data);
+	}
+	// end tbl_title_menu
+
+	// tbl_sub_menu
+	public function GetAllSubMenu()
+	{
+		$this->db->select('tbl_sub_menu.*, tbl_title_menu.nama_title_menu');
+		$this->db->from('tbl_sub_menu');
+		$this->db->join('tbl_title_menu', 'tbl_title_menu.id_title_menu = tbl_sub_menu.title_menu_id');
+		return $this->db->get()->result_array();
+	}
+
+	public function GetSatuDataSubMenu($id)
+	{
+		return $this->db->get_where('tbl_sub_menu', ['id_sub_menu' => $id])->row_array();
+	}
+
+	public function TambahDataSubMenu($data)
+	{
+		$this->db->insert('tbl_sub_menu', $data);
+	}
+	public function HapusDataSubMenu($id)
+	{
+		$this->db->where('id_sub_menu', $id);
+		$this->db->delete('tbl_sub_menu');
+	}
+	public function UbahSubMenu($id, $data)
+	{
+		$this->db->where('id_sub_menu', $id);
+		$this->db->update('tbl_sub_menu', $data);
 	}
 }
 
