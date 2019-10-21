@@ -26,7 +26,7 @@
 										<td><?= $data['nama_title_menu'] ?></td>
 										<td>
 											<button data-toggle="modal" data-target="#UbahTitle" class="btn btn-primary UbahTitleMenu" data-id="<?= $data['id_title_menu'] ?>" data-nama="<?= $data['nama_title_menu'] ?>">Ubah</button>
-											<a href="<?= base_url('menu/title/hapus/') . $data['id_title_menu'] ?>" class="btn btn-danger">Hapus</a>
+											<a href="<?= base_url('menu/title/hapus/') . $data['id_title_menu'] ?>" class="btn btn-danger hapus">Hapus</a>
 										</td>
 									</tr>
 								<?php endforeach; ?>
@@ -53,7 +53,7 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="title">Nama Title</label>
-						<input type="text" name="nama" id="title" class="form-control" required autofocus autocomplete="off">
+						<input type="text" name="nama" id="title" class="form-control" autofocus autocomplete="off">
 					</div>
 				</div>
 				<div class="modal-footer">
@@ -80,7 +80,7 @@
 					<div class="form-group">
 						<label for="FormTitleNama">Nama Title</label>
 						<input type="hidden" name="id" id="FormTitleId">
-						<input type="text" name="nama" class="form-control" id="FormTitleNama" required autofocus autocomplete="off">
+						<input type="text" name="nama" class="form-control" id="FormTitleNama" autofocus autocomplete="off">
 					</div>
 				</div>
 				<div class="modal-footer">
