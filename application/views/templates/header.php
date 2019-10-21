@@ -24,6 +24,8 @@
 	<link rel="shortcut icon" href="<?= base_url('asset') ?>/img/favicon.ico">
 	<!-- datatable -->
 	<link rel="stylesheet" type="text/css" href="<?= base_url('asset') ?>/vendor/datatable/datatables.min.css" />
+	<!-- jquery -->
+	<script src="<?= base_url('asset') ?>/vendor/jquery/jquery.min.js"></script>
 
 </head>
 

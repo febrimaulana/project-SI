@@ -34,7 +34,7 @@ $('.hapus').on('click', function (e) {
 		if (result.value) {
 			document.location.href = href;
 		}
-	})
+	});
 });
 // end alert
 
@@ -55,5 +55,14 @@ $(document).ready(function () {
 
 		$('#FormTitleId').val(id);
 		$('#FormTitleNama').val(nama);
-	})
+	});
+
+	// ubah aktor
+	$('.TombolUbahAktor').click(function () {
+		let id = $(this).data('id');
+		let nama = $(this).data('nama');
+
+		$('#FormIdAktor').val(id);
+		$('#FormAktorNama').val(nama);
+	});
 });

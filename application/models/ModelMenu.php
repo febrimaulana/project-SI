@@ -66,15 +66,46 @@ class ModelMenu extends CI_Model
 	{
 		$this->db->insert('tbl_sub_menu', $data);
 	}
+
 	public function HapusDataSubMenu($id)
 	{
 		$this->db->where('id_sub_menu', $id);
 		$this->db->delete('tbl_sub_menu');
 	}
+
 	public function UbahSubMenu($id, $data)
 	{
 		$this->db->where('id_sub_menu', $id);
 		$this->db->update('tbl_sub_menu', $data);
+	}
+	// end tbl_sub_menu
+
+	// akses menu
+	public function GetAllAktor()
+	{
+		return $this->db->get('tbl_aktor')->result_array();
+	}
+
+	public function GetSatuDataAktor($id)
+	{
+		return $this->db->get_where('tbl_aktor', ['id_aktor' => $id])->row_array();
+	}
+
+	public function TambahAktor($data)
+	{
+		$this->db->insert('tbl_aktor', $data);
+	}
+
+	public function HapusAktor($id)
+	{
+		$this->db->where('id_aktor', $id);
+		$this->db->delete('tbl_aktor');
+	}
+
+	public function UbahAktor($id, $data)
+	{
+		$this->db->where('id_aktor', $id);
+		$this->db->update('tbl_aktor', $data);
 	}
 }
 
