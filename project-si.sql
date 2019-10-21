@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 19, 2019 at 11:34 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Oct 21, 2019 at 12:26 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -83,8 +83,9 @@ CREATE TABLE `tbl_sub_menu` (
 --
 
 INSERT INTO `tbl_sub_menu` (`id_sub_menu`, `title_menu_id`, `nama_sub_menu`, `url_sub_menu`, `icon_sub_menu`, `status_sub_menu`) VALUES
-(1, 1, 'Title & Akses Menu', 'menu/title', 'icon-grid', '1'),
-(2, 1, 'Sub Menu', 'menu/submenu', 'icon-grid', '1');
+(1, 1, 'Menu Title', 'menu/title', 'fa fa-table', '1'),
+(2, 1, 'Sub Menu', 'menu/submenu', 'fa fa-table', '1'),
+(4, 1, 'Akses Menu', 'menu/akses', 'fa fa-user', '1');
 
 -- --------------------------------------------------------
 
@@ -103,7 +104,7 @@ CREATE TABLE `tbl_title_menu` (
 
 INSERT INTO `tbl_title_menu` (`id_title_menu`, `nama_title_menu`) VALUES
 (1, 'Menu Manajemen'),
-(2, 'test');
+(2, 'Dosen');
 
 --
 -- Indexes for dumped tables
@@ -153,13 +154,13 @@ ALTER TABLE `tbl_aktor`
 -- AUTO_INCREMENT for table `tbl_sub_menu`
 --
 ALTER TABLE `tbl_sub_menu`
-  MODIFY `id_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_title_menu`
 --
 ALTER TABLE `tbl_title_menu`
-  MODIFY `id_title_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_title_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
