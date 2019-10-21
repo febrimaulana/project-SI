@@ -1,21 +1,14 @@
-The MIT License (MIT)
+---------------------
+ LICENSE CONDITIONS
+---------------------
 
-Copyright (c) 2014 - 2019, British Columbia Institute of Technology
+You are completely free to use this template for your personal use or as a work for your client as 
+long as you keep the link at the template footer pointing to us and our partner. 
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+If you would prefer removing the backlink from the theme footer, please donate (https://bootstrapious.com/donate) 
+to support themes' development. Suggested amount per template is $10. 
+Also, as a bonus for donors, I can provide you the SASS files for even easier template customization. Drop me a line at hello@bootstrapious.com after donating.
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+However you cannot redistribute the template nor its derivatives on the internet - neither for free or commercially (e.g. selling it on template marketplace).
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-THE SOFTWARE.
+Thank you for understanding and respecting the license conditions.
