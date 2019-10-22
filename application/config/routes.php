@@ -59,7 +59,6 @@ $route['auth'] = 'ControllerAuth';
 $route['auth/signup'] = 'ControllerAuth/signup';
 
 $route['menu/title'] = 'ControllerTitleMenu';
-$route['menu/title'] = 'ControllerTitleMenu';
 $route['menu/title/tambah'] = 'ControllerTitleMenu/tambah';
 $route['menu/title/hapus/(:any)'] = 'ControllerTitleMenu/hapus';
 $route['menu/title/ubah'] = 'ControllerTitleMenu/ubah';
@@ -74,3 +73,8 @@ $route['menu/aktor/ubah'] = 'ControllerAksesMenu/ubahaktor';
 $route['menu/aktor/hapus/(:any)'] = 'ControllerAksesMenu/hapusaktor';
 $route['menu/akses/data/(:any)'] = 'ControllerAksesMenu/dataakses';
 $route['menu/akses/ubah'] = 'ControllerAksesMenu/ubahakses';
+
+$route['dosen/list'] = 'ControllerDosen';
+$route['dosen/list/tambah'] = 'ControllerDosen/tambah';
+$route['dosen/list/ubah'] = 'ControllerDosen/ubah';
+$route['dosen/list/hapus/(:any)'] = 'ControllerDosen/hapus';

@@ -107,6 +107,30 @@ class ModelMenu extends CI_Model
 		$this->db->where('id_aktor', $id);
 		$this->db->update('tbl_aktor', $data);
 	}
+
+	// tbl_dosen
+	public function GetAllDosen()
+	{
+		return $this->db->get('tbl_dosen')->result_array();
+	}
+
+	public function TambahDosen($data)
+	{
+		$this->db->insert('tbl_dosen', $data);
+	}
+
+	public function HapusDosen($id)
+	{
+		$this->db->where('id_dosen', $id);
+		$this->db->delete('tbl_dosen');
+	}
+
+	public function UbahDosen($id, $data)
+	{
+		$this->db->where('id_dosen', $id);
+		$this->db->update('tbl_dosen', $data);
+	}
+	// end tbl_title_menu
 }
 
 /* End of file ModelMenu.php */

@@ -5,7 +5,7 @@
         <div class="sidebar-header d-flex align-items-center">
             <div class="avatar"><img src="<?= base_url('asset') ?>/img/avatar-1.jpg" alt="..." class="img-fluid rounded-circle"></div>
             <div class="title">
-                <h1 class="h4">Febri Maulana Yunus</h1>
+                <h1 class="h4">Developer TA/KP</h1>
                 <p>Web Programming</p>
             </div>
         </div>

@@ -13,7 +13,7 @@ class ControllerDashboard extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = "Dashboard";
+		$data['title'] = "Dashboard E-Report TA/KP";
 		$lokasi = 'dashboard/index';
 		templates($lokasi, $data);
 	}

@@ -65,4 +65,13 @@ $(document).ready(function () {
 		$('#FormIdAktor').val(id);
 		$('#FormAktorNama').val(nama);
 	});
+
+	// ubah dosen
+	$('.UbahDosen').click(function () {
+		let id = $(this).data('id');
+		let nama = $(this).data('nama');
+
+		$('#FormDosenId').val(id);
+		$('#FormDosenNama').val(nama);
+	});
 });
