@@ -55,13 +55,19 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 // Route Menu
+$route['auth'] = 'ControllerAuth';
+$route['auth/signup'] = 'ControllerAuth/signup';
+
+$route['menu/title'] = 'ControllerTitleMenu';
 $route['menu/title'] = 'ControllerTitleMenu';
 $route['menu/title/tambah'] = 'ControllerTitleMenu/tambah';
 $route['menu/title/hapus/(:any)'] = 'ControllerTitleMenu/hapus';
 $route['menu/title/ubah'] = 'ControllerTitleMenu/ubah';
+
 $route['menu/submenu'] = 'ControllerSubMenu';
 $route['menu/submenu/hapus/(:any)'] = 'ControllerSubMenu/hapus';
 $route['menu/submenu/ubah/(:any)'] = 'ControllerSubMenu/ubah';
+
 $route['menu/aktor'] = 'ControllerAksesMenu';
 $route['menu/aktor/tambah'] = 'ControllerAksesMenu/tambahaktor';
 $route['menu/aktor/ubah'] = 'ControllerAksesMenu/ubahaktor';

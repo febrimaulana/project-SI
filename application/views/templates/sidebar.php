@@ -13,8 +13,8 @@
             <li><a href="<?= base_url(); ?>"> <i class="icon-home"></i>Home </a></li>
         </ul>
         <?php $aktor = 1; ?>
-        <?php $menutitile = $this->menu->GetTitleMenu($aktor); ?>
-        <?php foreach ($menutitile as $tl) { ?>
+        <?php $menutitle = $this->menu->GetTitleMenu($aktor); ?>
+        <?php foreach ($menutitle as $tl) { ?>
             <span class="heading"><?= $tl['nama_title_menu'] ?></span>
             <?php
                 $titleid = $tl['id_title_menu'];
