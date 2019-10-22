@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 21, 2019 at 12:26 PM
+-- Generation Time: Oct 22, 2019 at 05:14 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -39,8 +39,7 @@ CREATE TABLE `tbl_akses_menu` (
 --
 
 INSERT INTO `tbl_akses_menu` (`id_akses_menu`, `aktor_id`, `title_menu_id`) VALUES
-(1, 1, 1),
-(2, 1, 2);
+(11, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -50,14 +49,14 @@ INSERT INTO `tbl_akses_menu` (`id_akses_menu`, `aktor_id`, `title_menu_id`) VALU
 
 CREATE TABLE `tbl_aktor` (
   `id_aktor` int(11) NOT NULL,
-  `peran_aktor` varchar(255) NOT NULL
+  `nama_aktor` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_aktor`
 --
 
-INSERT INTO `tbl_aktor` (`id_aktor`, `peran_aktor`) VALUES
+INSERT INTO `tbl_aktor` (`id_aktor`, `nama_aktor`) VALUES
 (1, 'Admin'),
 (2, 'Dosen Jurusan'),
 (3, 'Dosen Pembimbing'),
@@ -85,7 +84,7 @@ CREATE TABLE `tbl_sub_menu` (
 INSERT INTO `tbl_sub_menu` (`id_sub_menu`, `title_menu_id`, `nama_sub_menu`, `url_sub_menu`, `icon_sub_menu`, `status_sub_menu`) VALUES
 (1, 1, 'Menu Title', 'menu/title', 'fa fa-table', '1'),
 (2, 1, 'Sub Menu', 'menu/submenu', 'fa fa-table', '1'),
-(4, 1, 'Akses Menu', 'menu/akses', 'fa fa-user', '1');
+(4, 1, 'Akses Menu', 'menu/aktor', 'fa fa-user', '1');
 
 -- --------------------------------------------------------
 
@@ -142,7 +141,7 @@ ALTER TABLE `tbl_title_menu`
 -- AUTO_INCREMENT for table `tbl_akses_menu`
 --
 ALTER TABLE `tbl_akses_menu`
-  MODIFY `id_akses_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_akses_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_aktor`
@@ -160,7 +159,7 @@ ALTER TABLE `tbl_sub_menu`
 -- AUTO_INCREMENT for table `tbl_title_menu`
 --
 ALTER TABLE `tbl_title_menu`
-  MODIFY `id_title_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_title_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
