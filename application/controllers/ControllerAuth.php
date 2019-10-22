@@ -13,16 +13,18 @@ class ControllerAuth extends CI_Controller
 
 	public function index()
 	{
-		$data['title'] = "Login";
-		$lokasi = 'auth/login';
-		templates($lokasi, $data);
+		$data['title'] = "Login E-Report TA/KP";
+		$this->load->view('templates/auth_header', $data);
+		$this->load->view('auth/login');
+		$this->load->view('templates/auth_footer');
 	}
 
 	public function signup()
 	{
-		$data['title'] = "Sign Up";
-		$lokasi = 'auth/signup';
-		templates($lokasi, $data);
+		$data['title'] = "Sign Up E-Report TA/KP";
+		$this->load->view('templates/auth_header', $data);
+		$this->load->view('auth/signup');
+		$this->load->view('templates/auth_footer');
 	}
 }
 
