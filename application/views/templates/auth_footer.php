@@ -7,6 +7,9 @@
  <script src="<?= base_url('asset/'); ?>vendor/jquery-validation/jquery.validate.min.js"></script>
  <!-- Main File-->
  <script src="<?= base_url('asset/') ?>js/front.js"></script>
+ <!-- alert -->
+ <script src="<?= base_url('asset'); ?>/js/sweetalert2.all.min.js"></script>
+ <script src="<?= base_url('asset') ?>/js/myscript.js"></script>
  </body>
 
  </html>

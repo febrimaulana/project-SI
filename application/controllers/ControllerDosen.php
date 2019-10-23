@@ -8,6 +8,7 @@ class ControllerDosen extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('ModelMenu', 'menu');
+		aksessistem();
 	}
 
 

@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.8.2
+-- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2019 at 07:58 PM
--- Server version: 10.1.10-MariaDB
--- PHP Version: 5.6.19
+-- Generation Time: Oct 23, 2019 at 06:00 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,6 +21,28 @@ SET time_zone = "+00:00";
 --
 -- Database: `project-si`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_akses_login`
+--
+
+CREATE TABLE `tbl_akses_login` (
+  `id_akses_login` int(11) NOT NULL,
+  `username` varchar(128) NOT NULL,
+  `otp_akses_login` varchar(255) DEFAULT NULL,
+  `aktor_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_akses_login`
+--
+
+INSERT INTO `tbl_akses_login` (`id_akses_login`, `username`, `otp_akses_login`, `aktor_id`) VALUES
+(1, '123456789', '$2y$10$9Qa2fe4kqa54s5mfJ9H.seKlNbf2fBp5aKazhWglUQ/ffQ4nSiI/S', 3),
+(2, '1544390042', 'NT4gx8', 4),
+(3, 'admin', '26RxPG', 1);
 
 -- --------------------------------------------------------
 
@@ -70,18 +94,36 @@ INSERT INTO `tbl_aktor` (`id_aktor`, `nama_aktor`) VALUES
 
 CREATE TABLE `tbl_dosen` (
   `id_dosen` varchar(128) NOT NULL,
-  `nama_dosen` varchar(128) NOT NULL,
-  `aktor_id` int(128) NOT NULL,
-  `mahasiswa_id` int(128) NOT NULL
+  `nama_dosen` varchar(255) NOT NULL,
+  `email_dosen` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbl_dosen`
 --
 
-INSERT INTO `tbl_dosen` (`id_dosen`, `nama_dosen`, `aktor_id`, `mahasiswa_id`) VALUES
-('012019102201', 'Yunita Sari, ST, MMSI', 3, 0),
-('012019102302', 'Essy Malays, S.Kom, M.Kom, MMSI', 0, 0);
+INSERT INTO `tbl_dosen` (`id_dosen`, `nama_dosen`, `email_dosen`) VALUES
+('123456789', 'Essy', 'febriyunus@gmail.com'),
+('admin', 'Admin Sistem', 'febriyunus@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_mahasiswa`
+--
+
+CREATE TABLE `tbl_mahasiswa` (
+  `id_mahasiswa` varchar(128) NOT NULL,
+  `nama_mahasiswa` varchar(255) NOT NULL,
+  `email_mahasiswa` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_mahasiswa`
+--
+
+INSERT INTO `tbl_mahasiswa` (`id_mahasiswa`, `nama_mahasiswa`, `email_mahasiswa`) VALUES
+('1544390042', 'Febri Maulana Yunus', 'febriyunus@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -135,6 +177,12 @@ INSERT INTO `tbl_title_menu` (`id_title_menu`, `nama_title_menu`) VALUES
 --
 
 --
+-- Indexes for table `tbl_akses_login`
+--
+ALTER TABLE `tbl_akses_login`
+  ADD PRIMARY KEY (`id_akses_login`);
+
+--
 -- Indexes for table `tbl_akses_menu`
 --
 ALTER TABLE `tbl_akses_menu`
@@ -150,7 +198,13 @@ ALTER TABLE `tbl_aktor`
 -- Indexes for table `tbl_dosen`
 --
 ALTER TABLE `tbl_dosen`
-  ADD UNIQUE KEY `id_dosen` (`id_dosen`);
+  ADD PRIMARY KEY (`id_dosen`);
+
+--
+-- Indexes for table `tbl_mahasiswa`
+--
+ALTER TABLE `tbl_mahasiswa`
+  ADD PRIMARY KEY (`id_mahasiswa`);
 
 --
 -- Indexes for table `tbl_sub_menu`
@@ -169,25 +223,36 @@ ALTER TABLE `tbl_title_menu`
 --
 
 --
+-- AUTO_INCREMENT for table `tbl_akses_login`
+--
+ALTER TABLE `tbl_akses_login`
+  MODIFY `id_akses_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `tbl_akses_menu`
 --
 ALTER TABLE `tbl_akses_menu`
   MODIFY `id_akses_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
 --
 -- AUTO_INCREMENT for table `tbl_aktor`
 --
 ALTER TABLE `tbl_aktor`
   MODIFY `id_aktor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 --
 -- AUTO_INCREMENT for table `tbl_sub_menu`
 --
 ALTER TABLE `tbl_sub_menu`
   MODIFY `id_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
 --
 -- AUTO_INCREMENT for table `tbl_title_menu`
 --
 ALTER TABLE `tbl_title_menu`
   MODIFY `id_title_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
