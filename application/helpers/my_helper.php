@@ -28,13 +28,13 @@ function send_email_otp($otp, $sendmail)
 	$config['protocol'] = "smtp";
 	$config['smtp_host'] = "ssl://smtp.gmail.com";
 	$config['smtp_port'] = "465";
-	$config['smtp_user'] = "febriyunus@gmail.com";
+	$config['smtp_user'] = "febrimaulana0224@gmail.com";
 	$config['smtp_pass'] = "febriaja11";
 	$config['charset'] = "utf-8";
 	$config['mailtype'] = "html";
 	$config['newline'] = "\r\n";
 	$ci->email->initialize($config);
-	$ci->email->from('febriyunus@gmail.com', 'E-Report TA/KP');
+	$ci->email->from('no-replay@gmail.com', 'E-Report TA/KP');
 	$ci->email->to($sendmail);
 	$ci->email->subject('E-Report TA/KP OTP');
 	$ci->email->message("Kode OTP Anda Adalah: $otp");
