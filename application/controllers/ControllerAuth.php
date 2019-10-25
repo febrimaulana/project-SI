@@ -95,7 +95,7 @@ class ControllerAuth extends CI_Controller
 			redirect("auth/otp/$username");
 		} else {
 			$this->session->set_flashdata('gagal', 'Username Anda Tiak Terdaftar!');
-			redirect('auth');
+			redirect('');
 		}
 	}
 

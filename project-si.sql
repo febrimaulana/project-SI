@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2019 at 06:00 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Oct 25, 2019 at 08:57 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,8 +41,8 @@ CREATE TABLE `tbl_akses_login` (
 
 INSERT INTO `tbl_akses_login` (`id_akses_login`, `username`, `otp_akses_login`, `aktor_id`) VALUES
 (1, '123456789', '$2y$10$9Qa2fe4kqa54s5mfJ9H.seKlNbf2fBp5aKazhWglUQ/ffQ4nSiI/S', 3),
-(2, '1544390042', 'NT4gx8', 4),
-(3, 'admin', '26RxPG', 1);
+(2, '1544390042', '$2y$10$CzhIzj8sNBj.S6hf6N/c5Ol.0CC7A.6HUJfsN1ughXV8Om/f4mNky', 4),
+(3, 'sistemadmin', 'aT1VIU', 1);
 
 -- --------------------------------------------------------
 
@@ -62,8 +62,9 @@ CREATE TABLE `tbl_akses_menu` (
 
 INSERT INTO `tbl_akses_menu` (`id_akses_menu`, `aktor_id`, `title_menu_id`) VALUES
 (11, 1, 1),
-(12, 1, 2),
-(13, 1, 3);
+(19, 2, 2),
+(20, 2, 3),
+(21, 1, 4);
 
 -- --------------------------------------------------------
 
@@ -82,7 +83,6 @@ CREATE TABLE `tbl_aktor` (
 
 INSERT INTO `tbl_aktor` (`id_aktor`, `nama_aktor`) VALUES
 (1, 'Admin'),
-(2, 'Dosen Jurusan'),
 (3, 'Dosen Pembimbing'),
 (4, 'Mahasiswa');
 
@@ -103,8 +103,8 @@ CREATE TABLE `tbl_dosen` (
 --
 
 INSERT INTO `tbl_dosen` (`id_dosen`, `nama_dosen`, `email_dosen`) VALUES
-('123456789', 'Essy', 'febriyunus@gmail.com'),
-('admin', 'Admin Sistem', 'febriyunus@gmail.com');
+('123456789', 'Essy', 'a6d55b57529b98439e77c20c9e057d30bc823ebca5f29c759bdbe68982cdefc849546ff4fd55068025798fa382560febb0401ba4d990ad5df4e45c6121b2fd66Y+GB2DSBcTvSiVWR0ulibalZM8bZvXKQQRrzHCapSqD4b7sW'),
+('sistemadmin', 'Admin Sistem', 'a6d55b57529b98439e77c20c9e057d30bc823ebca5f29c759bdbe68982cdefc849546ff4fd55068025798fa382560febb0401ba4d990ad5df4e45c6121b2fd66Y+GB2DSBcTvSiVWR0ulibalZM8bZvXKQQRrzHCapSqD4b7sW');
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,7 @@ CREATE TABLE `tbl_mahasiswa` (
 --
 
 INSERT INTO `tbl_mahasiswa` (`id_mahasiswa`, `nama_mahasiswa`, `email_mahasiswa`) VALUES
-('1544390042', 'Febri Maulana Yunus', 'febriyunus@gmail.com');
+('1544390042', 'Febri Maulana Yunus', 'a6d55b57529b98439e77c20c9e057d30bc823ebca5f29c759bdbe68982cdefc849546ff4fd55068025798fa382560febb0401ba4d990ad5df4e45c6121b2fd66Y+GB2DSBcTvSiVWR0ulibalZM8bZvXKQQRrzHCapSqD4b7sW');
 
 -- --------------------------------------------------------
 
@@ -148,9 +148,9 @@ INSERT INTO `tbl_sub_menu` (`id_sub_menu`, `title_menu_id`, `nama_sub_menu`, `ur
 (1, 1, 'Menu Title', 'menu/title', 'fa fa-table', '1'),
 (2, 1, 'Sub Menu', 'menu/submenu', 'fa fa-table', '1'),
 (4, 1, 'Akses Menu', 'menu/aktor', 'fa fa-user', '1'),
-(5, 2, 'Master List Dosen', 'dosen/list', 'fa fa-users', '1'),
-(6, 2, 'Dosen Pembimbing', 'dosen/dospem', 'fa fa-users', '1'),
-(7, 3, 'Master List Mahasiswa', 'mahasiswa/list', 'fa fa-users', '1');
+(5, 4, 'Master List Dosen', 'dosen/list', 'fa fa-users', '1'),
+(6, 4, 'Master List Bimbingan', 'dosen/bimbingan', 'fa fa-users', '1'),
+(7, 4, 'Master List Mahasiswa', 'mahasiswa/list', 'fa fa-users', '1');
 
 -- --------------------------------------------------------
 
@@ -169,8 +169,9 @@ CREATE TABLE `tbl_title_menu` (
 
 INSERT INTO `tbl_title_menu` (`id_title_menu`, `nama_title_menu`) VALUES
 (1, 'Menu Manajemen'),
-(2, 'Dosen'),
-(3, 'Mahasiswa');
+(4, 'Master Data'),
+(5, 'Dosen'),
+(6, 'Mahasiswa');
 
 --
 -- Indexes for dumped tables
@@ -232,7 +233,7 @@ ALTER TABLE `tbl_akses_login`
 -- AUTO_INCREMENT for table `tbl_akses_menu`
 --
 ALTER TABLE `tbl_akses_menu`
-  MODIFY `id_akses_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_akses_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tbl_aktor`
@@ -250,7 +251,7 @@ ALTER TABLE `tbl_sub_menu`
 -- AUTO_INCREMENT for table `tbl_title_menu`
 --
 ALTER TABLE `tbl_title_menu`
-  MODIFY `id_title_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_title_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

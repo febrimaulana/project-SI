@@ -28,7 +28,7 @@
 										<button class="btn btn-primary btn-sm btn-block">Login</button>
 									</div>
 								</form>
-								<small>Tidak Menerima OTP ? </small><a href="register.html" class="signup">Klik disini</a>
+								<small>Tidak Menerima OTP ? </small><a href="<?= base_url('auth/login/') ?>" class="signup">Klik disini</a>
 							</div>
 						</div>
 					</div>

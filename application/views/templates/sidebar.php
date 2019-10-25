@@ -10,7 +10,7 @@
 			</div>
 		</div>
 		<ul class="list-unstyled p-0 mb-1">
-			<li><a href="<?= base_url(); ?>"> <i class="icon-home"></i>Home </a></li>
+			<li><a href="<?= base_url('dashboard'); ?>"> <i class="icon-home"></i>Home </a></li>
 		</ul>
 		<?php $aktor = $this->session->userdata('id_aktor'); ?>
 		<?php $menutitle = $this->menu->GetTitleMenu($aktor); ?>
