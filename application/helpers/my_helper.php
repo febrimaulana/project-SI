@@ -65,3 +65,29 @@ function aksessistem()
 	// 	}
 	// }
 }
+
+function data_hash($data)
+{
+	$ci = get_instance();
+	$ci->encryption->initialize(
+		array(
+			'cipher' => 'aes-256',
+			'mode' => 'ctr',
+			'key' => '<a 32-character random string>'
+		)
+	);
+	return $ciphertext = $ci->encryption->encrypt($data);
+}
+
+function data_open($data)
+{
+	$ci = get_instance();
+	$ci->encryption->initialize(
+		array(
+			'cipher' => 'aes-256',
+			'mode' => 'ctr',
+			'key' => '<a 32-character random string>'
+		)
+	);
+	return $ci->encryption->decrypt($data);
+}

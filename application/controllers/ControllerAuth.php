@@ -78,7 +78,7 @@ class ControllerAuth extends CI_Controller
 				"otp_akses_login" => password_hash($otp, PASSWORD_DEFAULT)
 			];
 			$this->auth->UbahOtp($username, $data);
-			send_email_otp($otp, $dosen['email_dosen']);
+			send_email_otp($otp, data_open($dosen['email_dosen']));
 			$this->session->set_flashdata('pesan', 'OTP Berhasil Dikirim Cek Email Anda');
 			$this->session->set_userdata(['aksesotp' => TRUE]);
 			redirect("auth/otp/$username");
@@ -89,7 +89,7 @@ class ControllerAuth extends CI_Controller
 				"otp_akses_login" => password_hash($otp, PASSWORD_DEFAULT)
 			];
 			$this->auth->UbahOtp($username, $data);
-			send_email_otp($otp, $mahasiswa['email_mahasiswa']);
+			send_email_otp($otp, data_open($mahasiswa['email_mahasiswa']));
 			$this->session->set_userdata(['aksesotp' => TRUE]);
 			$this->session->set_flashdata('pesan', 'OTP Berhasil Dikirim Cek Email Anda');
 			redirect("auth/otp/$username");
