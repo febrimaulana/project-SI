@@ -73,7 +73,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form action="<?= base_url('menu/submenu') ?>" method="post">
+			<form action="<?= base_url('menu/submenu') ?>" method="post" id="formsubmenu">
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="title">Nama Title</label>
@@ -83,35 +83,17 @@
 							<?php endforeach; ?>
 						</select>
 					</div>
-					<div class="form-group has-danger">
-						<?php if (form_error('submenu')) { ?>
-							<label for="submenu">Sub Menu</label>
-							<input type="text" name="submenu" class="form-control is-invalid" id="submenu">
-							<div class="invalid-feedback"><?= form_error('submenu') ?></div>
-						<?php } else { ?>
-							<label for="submenu">Sub Menu</label>
-							<input type="text" name="submenu" class="form-control" id="submenu" value="<?= set_value('submenu') ?>">
-						<?php } ?>
+					<div class="form-group">
+						<label for="submenu">Nama Sub Menu</label>
+						<input type="text" name="submenu" class="form-control" id="submenu" value="<?= set_value('submenu') ?>" autocomplete="off">
 					</div>
 					<div class="form-group">
-						<?php if (form_error('url')) { ?>
-							<label for="url">URL</label>
-							<input type="text" name="url" class="form-control is-invalid" id="url">
-							<div class="invalid-feedback"><?= form_error('url') ?></div>
-						<?php } else { ?>
-							<label for="url">URL</label>
-							<input type="text" name="url" class="form-control" id="url" value="<?= set_value('url') ?>">
-						<?php } ?>
+						<label for="url">URL</label>
+						<input type="text" name="url" class="form-control" id="url" value="<?= set_value('url') ?>" autocomplete="off">
 					</div>
 					<div class="form-group">
-						<?php if (form_error('icon')) { ?>
-							<label for="icon">Icon</label>
-							<input type="text" name="icon" class="form-control is-invalid" id="icon">
-							<div class="invalid-feedback"><?= form_error('icon') ?></div>
-						<?php } else { ?>
-							<label for="icon">Icon</label>
-							<input type="text" name="icon" class="form-control" id="icon" value="<?= set_value('icon') ?>">
-						<?php } ?>
+						<label for="icon">Icon</label>
+						<input type="text" name="icon" class="form-control" id="icon" value="<?= set_value('icon') ?>" autocomplete="off">
 					</div>
 					<div class="form-group">
 						<label for="icon">Status Menu</label>

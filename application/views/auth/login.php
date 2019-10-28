@@ -21,7 +21,7 @@
 								<h3 class="mb-3 text-center">LOGIN MAHASISWA / DOSEN</h3>
 								<form action="<?= base_url('auth/login') ?>" method="get" class="form-validate">
 									<div class="form-group">
-										<input id="login-username" type="text" name="username" required autocomplete="off" data-msg="Username Wajib Diisi" class="input-material">
+										<input id="login-username" type="text" name="username" required autocomplete="off" data-msg="Username tidak boleh kosong" class="input-material">
 										<label for="login-username" class="label-material">Username</label>
 									</div>
 									<div class="form-group">

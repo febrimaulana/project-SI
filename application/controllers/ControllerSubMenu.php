@@ -7,7 +7,8 @@ class ControllerSubMenu extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('ModelMenu', 'menu');
-		aksessistem();
+		$akses = "Sub Menu";
+		aksessistem($akses);
 	}
 
 	public function index()

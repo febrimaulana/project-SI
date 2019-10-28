@@ -62,6 +62,10 @@ $route['auth/logout'] = 'ControllerAuth/logout';
 
 $route['dashboard'] = 'ControllerDashboard';
 
+$route['admin'] = 'ControllerAdmin';
+$route['admin/hapus/(:any)'] = 'ControllerAdmin/hapus';
+$route['admin/ubah'] = 'ControllerAdmin/ubah';
+
 $route['menu/title'] = 'ControllerTitleMenu';
 $route['menu/title/tambah'] = 'ControllerTitleMenu/tambah';
 $route['menu/title/hapus/(:any)'] = 'ControllerTitleMenu/hapus';
@@ -75,10 +79,15 @@ $route['menu/aktor'] = 'ControllerAksesMenu';
 $route['menu/aktor/tambah'] = 'ControllerAksesMenu/tambahaktor';
 $route['menu/aktor/ubah'] = 'ControllerAksesMenu/ubahaktor';
 $route['menu/aktor/hapus/(:any)'] = 'ControllerAksesMenu/hapusaktor';
+
 $route['menu/akses/data/(:any)'] = 'ControllerAksesMenu/dataakses';
 $route['menu/akses/ubah'] = 'ControllerAksesMenu/ubahakses';
 
-$route['dosen/list'] = 'ControllerDosen';
-$route['dosen/list/tambah'] = 'ControllerDosen/tambah';
-$route['dosen/list/ubah'] = 'ControllerDosen/ubah';
-$route['dosen/list/hapus/(:any)'] = 'ControllerDosen/hapus';
+$route['jurusan'] = 'ControllerJurusan';
+$route['jurusan/ubah'] = 'ControllerJurusan/ubah';
+$route['jurusan/hapus/(:any)'] = 'ControllerJurusan/hapus';
+
+$route['dosen/pembimbing'] = 'ControllerDosen';
+$route['dosen/pembimbing/tambah'] = 'ControllerDosen/tambah';
+$route['dosen/pembimbing/ubah'] = 'ControllerDosen/ubah';
+$route['dosen/pembimbing/hapus/(:any)'] = 'ControllerDosen/hapus';

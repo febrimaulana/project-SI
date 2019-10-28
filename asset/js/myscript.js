@@ -70,8 +70,36 @@ $(document).ready(function () {
 	$('.UbahDosen').click(function () {
 		let id = $(this).data('id');
 		let nama = $(this).data('nama');
+		let email = $(this).data('email');
+		let telp = $(this).data('telp');
+		let alamat = $(this).data('alamat');
 
 		$('#FormDosenId').val(id);
 		$('#FormDosenNama').val(nama);
+		$('#FormDosenEmail').val(email);
+		$('#FormDosenTelp').val(telp);
+		$('#FormDosenAlamat').val(alamat);
+	});
+
+	// ubah jurusan
+	$('.TombolJurusan').click(function () {
+		let id = $(this).data('id');
+		let nama = $(this).data('nama');
+
+		$('#FormIdJurusan').val(id);
+		$('#FormNamaJurusan').val(nama);
+	});
+
+	// admin	
+	$('.TombolUbahAdmin').click(function () {
+		let username = $(this).data('username');
+		let nama = $(this).data('nama');
+		let email = $(this).data('email');
+		let telp = $(this).data('telp');
+
+		$('#FormAdminUsername').val(username);
+		$('#FormAdminNama').val(nama);
+		$('#FormAdminEmail').val(email);
+		$('#FormTelpAdmin').val(telp);
 	});
 });

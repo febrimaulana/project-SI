@@ -8,7 +8,8 @@ class ControllerTitleMenu extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('ModelMenu', 'menu');
-		aksessistem();
+		$akses = "Menu Title";
+		aksessistem($akses);
 	}
 
 

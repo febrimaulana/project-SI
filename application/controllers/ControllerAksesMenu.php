@@ -8,7 +8,8 @@ class ControllerAksesMenu extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->model('ModelMenu', 'menu');
-		aksessistem();
+		$akses = "Akses Menu";
+		aksessistem($akses);
 	}
 
 	public function index()

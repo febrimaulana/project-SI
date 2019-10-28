@@ -13,6 +13,7 @@ class ControllerAuth extends CI_Controller
 
 	public function index()
 	{
+		sessionaktif();
 		$data['title'] = "Login E-Report TA/KP";
 		$this->load->view('templates/auth_header', $data);
 		$this->load->view('auth/login');
@@ -21,6 +22,7 @@ class ControllerAuth extends CI_Controller
 
 	public function otp()
 	{
+		sessionaktif();
 		if ($this->session->userdata('aksesotp') == 1) {
 			$data['title'] = "Login E-Report TA/KP";
 			$data['username'] = $this->uri->segment(3);
@@ -36,6 +38,7 @@ class ControllerAuth extends CI_Controller
 
 	public function verifikasiotp()
 	{
+		sessionaktif();
 		$otp = $this->input->post('otp');
 		$username = $this->uri->segment(4);
 		$data = $this->auth->GetSatuDataLogin($username);
@@ -63,6 +66,7 @@ class ControllerAuth extends CI_Controller
 
 	public function login()
 	{
+		sessionaktif();
 		if ($this->uri->segment(3)) {
 			$username = $this->uri->segment(3);
 		} else {
@@ -70,29 +74,54 @@ class ControllerAuth extends CI_Controller
 		}
 		$dosen = $this->auth->GetDataDosen($username);
 		$mahasiswa = $this->auth->GetDataMahasiswa($username);
+		$admin = $this->auth->GetDataAdmin($username);
 
 		if (!empty($dosen)) {
 			$username = $username;
-			$otp = random_string('alnum', 6);
-			$data = [
-				"otp_akses_login" => password_hash($otp, PASSWORD_DEFAULT)
-			];
-			$this->auth->UbahOtp($username, $data);
-			send_email_otp($otp, data_open($dosen['email_dosen']));
-			$this->session->set_flashdata('pesan', 'OTP Berhasil Dikirim Cek Email Anda');
-			$this->session->set_userdata(['aksesotp' => TRUE]);
-			redirect("auth/otp/$username");
+			$otp = random_string('numeric', 6);
+			if (send_email_otp($otp, data_open($dosen['email_dosen'])) == "success") {
+
+				$data = [
+					"otp_akses_login" => password_hash($otp, PASSWORD_DEFAULT)
+				];
+				$this->auth->UbahOtp($username, $data);
+				$this->session->set_flashdata('pesan', 'OTP Berhasil Dikirim Cek Email Anda');
+				$this->session->set_userdata(['aksesotp' => TRUE]);
+				redirect("auth/otp/$username");
+			} else {
+				$this->session->set_flashdata('gagal', 'Gagal kirim OTP!');
+				redirect('');
+			}
 		} else if (!empty($mahasiswa)) {
 			$username = $username;
-			$otp = random_string('alnum', 6);
-			$data = [
-				"otp_akses_login" => password_hash($otp, PASSWORD_DEFAULT)
-			];
-			$this->auth->UbahOtp($username, $data);
-			send_email_otp($otp, data_open($mahasiswa['email_mahasiswa']));
-			$this->session->set_userdata(['aksesotp' => TRUE]);
-			$this->session->set_flashdata('pesan', 'OTP Berhasil Dikirim Cek Email Anda');
-			redirect("auth/otp/$username");
+			$otp = random_string('numeric', 6);
+			if (send_email_otp($otp, data_open($mahasiswa['email_mahasiswa'])) == "success") {
+				$data = [
+					"otp_akses_login" => password_hash($otp, PASSWORD_DEFAULT)
+				];
+				$this->auth->UbahOtp($username, $data);
+				$this->session->set_userdata(['aksesotp' => TRUE]);
+				$this->session->set_flashdata('pesan', 'OTP Berhasil Dikirim Cek Email Anda');
+				redirect("auth/otp/$username");
+			} else {
+				$this->session->set_flashdata('gagal', 'Gagal kirim OTP!');
+				redirect('');
+			}
+		} else if (!empty($admin)) {
+			$username = $username;
+			$otp = random_string('numeric', 6);
+			if (send_email_otp($otp, data_open($admin['email_admin'])) == "success") {
+				$data = [
+					"otp_akses_login" => password_hash($otp, PASSWORD_DEFAULT)
+				];
+				$this->auth->UbahOtp($username, $data);
+				$this->session->set_userdata(['aksesotp' => TRUE]);
+				$this->session->set_flashdata('pesan', 'OTP Berhasil Dikirim Cek Email Anda');
+				redirect("auth/otp/$username");
+			} else {
+				$this->session->set_flashdata('gagal', 'Gagal kirim OTP!');
+				redirect('');
+			}
 		} else {
 			$this->session->set_flashdata('gagal', 'Username Anda Tiak Terdaftar!');
 			redirect('');

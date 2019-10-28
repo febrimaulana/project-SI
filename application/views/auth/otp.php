@@ -21,7 +21,7 @@
 								<h3 class="mb-3 text-center">Masukan OTP Anda</h3>
 								<form action="<?= base_url('auth/otp/verifikasi/') . $username ?>" method="post" class="form-validate">
 									<div class="form-group">
-										<input id="login-username" type="text" name="otp" required autocomplete="off" data-msg="Otp Wajib Diisi" class="input-material">
+										<input id="login-username" type="text" name="otp" required autocomplete="off" data-msg="Otp Wajib Diisi" class="input-material" autofocus>
 										<label for="login-username" class="label-material">OTP Anda</label>
 									</div>
 									<div class="form-group">

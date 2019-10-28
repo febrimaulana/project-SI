@@ -38,32 +38,53 @@ function send_email_otp($otp, $sendmail)
 	$ci->email->to($sendmail);
 	$ci->email->subject('E-Report TA/KP OTP');
 	$ci->email->message("Kode OTP Anda Adalah: $otp");
-	$ci->email->send();
+
+	if ($ci->email->send()) {
+		return "success";
+	} else {
+		return "error";
+	}
 }
 
-function aksessistem()
+function aksessistem($akses)
 {
 	$ci = get_instance();
 	if (!$ci->session->userdata('username') && !$ci->session->userdata('id_aktor')) {
-		$ci->session->set_flashdata('pesan', 'Silahkan Login Terlebih Dahulu');
+		$ci->session->set_flashdata('gagal', 'Silahkan Login Terlebih Dahulu');
+		redirect('');
+	} else {
+		$idaktor = $ci->session->userdata('id_aktor');
+		$nama = $akses;
+
+		$menu = $ci->db->get_where('tbl_sub_menu', ['nama_sub_menu' => $nama])->row_array();
+		$titlemenu = $menu['title_menu_id'];
+
+		$menuakses = $ci->db->get_where('tbl_akses_menu', [
+			"aktor_id" => $idaktor,
+			"title_menu_id" => $titlemenu
+		]);
+
+		if ($menuakses->num_rows() < 1) {
+			redirect('dashboard');
+		}
+	}
+}
+
+function aksesdashboard()
+{
+	$ci = get_instance();
+	if (!$ci->session->userdata('username') && !$ci->session->userdata('id_aktor')) {
+		$ci->session->set_flashdata('gagal', 'Silahkan Login Terlebih Dahulu');
 		redirect('');
 	}
-	// } else {
-	// 	$roleId = $ci->session->userdata('role_id');
-	// 	$url = $ci->uri->segment(1);
+}
 
-	// 	$menu = $ci->db->get_where('admin_sub_menu', ['url' => $url])->row_array();
-	// 	$menuId = $menu['menu_id'];
-
-	// 	$menuakses = $ci->db->get_where('admin_akses_menu', [
-	// 		"role_id" => $roleId,
-	// 		"menu_id" => $menuId
-	// 	]);
-
-	// 	if ($menuakses->num_rows() < 1) {
-	// 		redirect('auth/blocked');
-	// 	}
-	// }
+function sessionaktif()
+{
+	$ci = get_instance();
+	if ($ci->session->userdata('username') && $ci->session->userdata('id_aktor')) {
+		redirect('dashboard');
+	}
 }
 
 function data_hash($data)

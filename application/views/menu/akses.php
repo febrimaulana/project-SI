@@ -50,7 +50,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form action="<?= base_url('menu/aktor/tambah') ?>" method="post">
+			<form action="<?= base_url('menu/aktor/tambah') ?>" method="post" id="formaktor">
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="aktor">Nama Aktor</label>
@@ -76,7 +76,7 @@
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<form action="<?= base_url('menu/aktor/ubah') ?>" method="post">
+			<form action="<?= base_url('menu/aktor/ubah') ?>" method="post" id="formubahaktor">
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="FormAktorNama">Nama Title</label>
