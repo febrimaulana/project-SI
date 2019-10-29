@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 28, 2019 at 11:06 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Oct 29, 2019 at 04:06 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -118,6 +118,7 @@ CREATE TABLE `tbl_dosen` (
   `nama_dosen` varchar(255) NOT NULL,
   `email_dosen` varchar(255) NOT NULL,
   `no_telp_dosen` varchar(128) NOT NULL,
+  `jurusan_id` int(11) NOT NULL,
   `alamat_dosen` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -125,9 +126,9 @@ CREATE TABLE `tbl_dosen` (
 -- Dumping data for table `tbl_dosen`
 --
 
-INSERT INTO `tbl_dosen` (`id_dosen`, `nama_dosen`, `email_dosen`, `no_telp_dosen`, `alamat_dosen`) VALUES
-('123456789', 'Febri', 'c0a7cf3ef2c67d842cd8ab02380e481400f2ef675fb6cfb36bc284f93586a8d29f16f338b23cbb07f5206f9c2fc81b32aa3fce84d64362a0c4490ec26688146bgH7Co2dkPCk30T9IO49MIA7kVFStp9TO0SxFpAum', '081818972724', 'JakSel'),
-('1544390042', 'Febri', '3b287c9ea52f7e75271b0a63c724c86294a4c964ac091849c1ee062c12fc40e4bebf3e6a91e95510c48f5cad0a191b948fe1bd391c1d5d2deebf7f63ff499959lm9UEqqrPtWwaJHk+5VyM/W4MLjZhPJ+4VILEQlkh6wBOf1i', '081818972724', 'depok');
+INSERT INTO `tbl_dosen` (`id_dosen`, `nama_dosen`, `email_dosen`, `no_telp_dosen`, `jurusan_id`, `alamat_dosen`) VALUES
+('123456789', 'Febri', 'c0a7cf3ef2c67d842cd8ab02380e481400f2ef675fb6cfb36bc284f93586a8d29f16f338b23cbb07f5206f9c2fc81b32aa3fce84d64362a0c4490ec26688146bgH7Co2dkPCk30T9IO49MIA7kVFStp9TO0SxFpAum', '081818972724', 1, 'JakSel'),
+('1544390042', 'Febri', '3b287c9ea52f7e75271b0a63c724c86294a4c964ac091849c1ee062c12fc40e4bebf3e6a91e95510c48f5cad0a191b948fe1bd391c1d5d2deebf7f63ff499959lm9UEqqrPtWwaJHk+5VyM/W4MLjZhPJ+4VILEQlkh6wBOf1i', '081818972724', 2, 'depok');
 
 -- --------------------------------------------------------
 
