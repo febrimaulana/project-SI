@@ -4,12 +4,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class ModelDosen extends CI_Model
 {
 	// tbl_dosen
-	public function GetAllDosen()
+	public function GetAllDosenPembimbing()
 	{
 		$this->db->select('tbl_dosen.*, tbl_akses_login.aktor_id');
 		$this->db->from('tbl_dosen');
 		$this->db->join('tbl_akses_login', 'tbl_akses_login.username = tbl_dosen.id_dosen');
 		$this->db->where('aktor_id', 3);
+		return $this->db->get('')->result_array();
+	}
+
+	public function GetAllDosenJurusan()
+	{
+		$this->db->select('tbl_dosen.*, tbl_akses_login.aktor_id');
+		$this->db->from('tbl_dosen');
+		$this->db->join('tbl_akses_login', 'tbl_akses_login.username = tbl_dosen.id_dosen');
+		$this->db->where('aktor_id', 2);
 		return $this->db->get('')->result_array();
 	}
 

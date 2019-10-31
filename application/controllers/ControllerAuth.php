@@ -45,7 +45,8 @@ class ControllerAuth extends CI_Controller
 
 		$datasession = [
 			"username" => $data['username'],
-			"id_aktor" => $data['aktor_id']
+			"id_aktor" => $data['aktor_id'],
+			"jurusan" => $data['jurusan_id']
 		];
 
 		$dataubah = [

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 29, 2019 at 04:06 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Oct 31, 2019 at 04:56 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,6 +40,7 @@ CREATE TABLE `tbl_admin` (
 --
 
 INSERT INTO `tbl_admin` (`username_admin`, `nama_admin`, `email_admin`, `no_telp_admin`) VALUES
+('arif', 'Arif', '9a0d3d91456694dbf2d13b85a56ed5206d43b1f04fe74cce2dc07f9cdd2b942ecd438513216bc08ab27b3a622863db235bcbff461071f2b162f6cf6dbf248f54+/rwRlKOP13GHe6coPWCitpkv677iQFuTPpEpQfixxKdBp9BKg==', '081818972724'),
 ('febrimaulana', 'Febri Maulana', '5386917db82aa4b9c10598e94f7360cbfc14b4a97a8ea1c5d5af0a96c70fb70a2a1f1629c81329ff96c51a6374ee2018c82e275d99517325cb073717d4e2ee38fbR8oKDrnHKPo4MMAekd70naXWrrJCZqInexwaw/r0WOdZVA', '081818972724');
 
 -- --------------------------------------------------------
@@ -52,6 +53,7 @@ CREATE TABLE `tbl_akses_login` (
   `id_akses_login` int(11) NOT NULL,
   `username` varchar(128) NOT NULL,
   `otp_akses_login` varchar(255) DEFAULT NULL,
+  `jurusan_id` int(11) DEFAULT NULL,
   `aktor_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -59,9 +61,10 @@ CREATE TABLE `tbl_akses_login` (
 -- Dumping data for table `tbl_akses_login`
 --
 
-INSERT INTO `tbl_akses_login` (`id_akses_login`, `username`, `otp_akses_login`, `aktor_id`) VALUES
-(11, 'febrimaulana', '932108', 1),
-(13, '1544390042', '419607', 3);
+INSERT INTO `tbl_akses_login` (`id_akses_login`, `username`, `otp_akses_login`, `jurusan_id`, `aktor_id`) VALUES
+(11, 'febrimaulana', '475236', NULL, 1),
+(15, '1544390042', '$2y$10$70Bpm/9CyR/gJd6.axvekOpD5tjjlnYuIvl9SsSp7Ltf10pMPZPTK', 2, 2),
+(16, 'arif', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -84,7 +87,9 @@ INSERT INTO `tbl_akses_menu` (`id_akses_menu`, `aktor_id`, `title_menu_id`) VALU
 (19, 2, 2),
 (20, 2, 3),
 (21, 1, 4),
-(22, 3, 5);
+(22, 3, 5),
+(23, 2, 4),
+(24, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -118,7 +123,6 @@ CREATE TABLE `tbl_dosen` (
   `nama_dosen` varchar(255) NOT NULL,
   `email_dosen` varchar(255) NOT NULL,
   `no_telp_dosen` varchar(128) NOT NULL,
-  `jurusan_id` int(11) NOT NULL,
   `alamat_dosen` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -126,9 +130,8 @@ CREATE TABLE `tbl_dosen` (
 -- Dumping data for table `tbl_dosen`
 --
 
-INSERT INTO `tbl_dosen` (`id_dosen`, `nama_dosen`, `email_dosen`, `no_telp_dosen`, `jurusan_id`, `alamat_dosen`) VALUES
-('123456789', 'Febri', 'c0a7cf3ef2c67d842cd8ab02380e481400f2ef675fb6cfb36bc284f93586a8d29f16f338b23cbb07f5206f9c2fc81b32aa3fce84d64362a0c4490ec26688146bgH7Co2dkPCk30T9IO49MIA7kVFStp9TO0SxFpAum', '081818972724', 1, 'JakSel'),
-('1544390042', 'Febri', '3b287c9ea52f7e75271b0a63c724c86294a4c964ac091849c1ee062c12fc40e4bebf3e6a91e95510c48f5cad0a191b948fe1bd391c1d5d2deebf7f63ff499959lm9UEqqrPtWwaJHk+5VyM/W4MLjZhPJ+4VILEQlkh6wBOf1i', '081818972724', 2, 'depok');
+INSERT INTO `tbl_dosen` (`id_dosen`, `nama_dosen`, `email_dosen`, `no_telp_dosen`, `alamat_dosen`) VALUES
+('1544390042', 'Dwi', '9b2accad831f0bfd17b66b99f01eba3689227d1db269531e820388a3f558a669ed423b114bda512f9f8a8f4ac00671ddc87d2c1ac6573353ab5c28693a182b28uoS8NeUCQhnDJLq1AyhBAcTJNQDcX2pD50PoNUxeN1KYgJI=', '081818972724', 'depok');
 
 -- --------------------------------------------------------
 
@@ -188,7 +191,8 @@ INSERT INTO `tbl_sub_menu` (`id_sub_menu`, `title_menu_id`, `nama_sub_menu`, `ur
 (4, 1, 'Menu Title', 'menu/title', 'fa fa-table', '1'),
 (5, 1, 'Sub Menu', 'menu/submenu', 'fa fa-table', '1'),
 (6, 1, 'Akses Menu', 'menu/aktor', 'fa fa-user', '1'),
-(8, 4, 'Dosen Pembiming', 'dosen/pembimbing', 'fa fa-users', '1');
+(8, 4, 'Dosen Pembiming', 'dosen/pembimbing', 'fa fa-users', '1'),
+(16, 4, 'Mahasiswa', 'mahasiswa', 'fa fa-users', '1');
 
 -- --------------------------------------------------------
 
@@ -278,13 +282,13 @@ ALTER TABLE `tbl_title_menu`
 -- AUTO_INCREMENT for table `tbl_akses_login`
 --
 ALTER TABLE `tbl_akses_login`
-  MODIFY `id_akses_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_akses_login` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_akses_menu`
 --
 ALTER TABLE `tbl_akses_menu`
-  MODIFY `id_akses_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id_akses_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tbl_aktor`
@@ -302,7 +306,7 @@ ALTER TABLE `tbl_jurusan`
 -- AUTO_INCREMENT for table `tbl_sub_menu`
 --
 ALTER TABLE `tbl_sub_menu`
-  MODIFY `id_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id_sub_menu` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `tbl_title_menu`

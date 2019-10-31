@@ -87,7 +87,10 @@ $route['jurusan'] = 'ControllerJurusan';
 $route['jurusan/ubah'] = 'ControllerJurusan/ubah';
 $route['jurusan/hapus/(:any)'] = 'ControllerJurusan/hapus';
 
-$route['dosen/pembimbing'] = 'ControllerDosen';
-$route['dosen/pembimbing/tambah'] = 'ControllerDosen/tambah';
-$route['dosen/pembimbing/ubah'] = 'ControllerDosen/ubah';
-$route['dosen/pembimbing/hapus/(:any)'] = 'ControllerDosen/hapus';
+$route['dosen/pembimbing'] = 'ControllerDosen/HalamanDosenPembimbing';
+$route['dosen/pembimbing/ubah'] = 'ControllerDosen/UbahDosenPembimbing';
+$route['dosen/pembimbing/hapus/(:any)'] = 'ControllerDosen/HapusDosenPembimbing';
+
+$route['dosen/jurusan'] = 'ControllerDosen/HalamanDosenJurusan';
+$route['dosen/jurusan/ubah'] = 'ControllerDosen/UbahDosenJurusan';
+$route['dosen/jurusan/hapus/(:any)'] = 'ControllerDosen/HapusDosenJurusan';
