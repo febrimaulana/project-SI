@@ -58,6 +58,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['auth/otp/(:any)'] = 'ControllerAuth/otp';
 $route['auth/otp/verifikasi/(:any)'] = 'ControllerAuth/verifikasiotp';
 $route['auth/login'] = 'ControllerAuth/login';
+$route['auth/login/relogin/(:any)'] = 'ControllerAuth/relogin';
 $route['auth/logout'] = 'ControllerAuth/logout';
 
 $route['dashboard'] = 'ControllerDashboard';

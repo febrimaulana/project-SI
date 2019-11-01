@@ -65,11 +65,11 @@ class ControllerAuth extends CI_Controller
 		}
 	}
 
-	public function login()
+	public function login($username = null)
 	{
 		sessionaktif();
 		if ($this->uri->segment(3)) {
-			$username = $this->uri->segment(3);
+			$username = $username;
 		} else {
 			$username = $this->input->get('username');
 		}
@@ -127,6 +127,12 @@ class ControllerAuth extends CI_Controller
 			$this->session->set_flashdata('gagal', 'Username Anda Tiak Terdaftar!');
 			redirect('');
 		}
+	}
+
+	public function relogin()
+	{
+		$username = $this->uri->segment(4);
+		$this->login($username);
 	}
 
 	public function logout()
